@@ -14,19 +14,18 @@ public class SQLiteConnection{
 	        String url = "jdbc:sqlite:C://sqlite/smd.db";  
 	          
 	      
-	        String sql = "create table movie_s(mname varchar(20),hero varchar(20),heroine varchar(20),Director varchar(20),Year varchar(4))";  
+	        String sql = "create table movies(moviesname varchar(20),hero varchar(20),heroine varchar(20),Director varchar(20),Year varchar(4))";  
 	          
 	        try{  
 	            Connection con = DriverManager.getConnection(url);  
 	            Statement s = con.createStatement();
 				s.execute(sql);
-				PreparedStatement ps = con.prepareStatement("insert into movie_s(mname,hero,heroine,Director,Year) values(?,?,?,?,?);");
-				ps.setString(1, "BAHUBALI");
-				ps.setString(2, "PRABHAS");
-				ps.setString(3, "TAMANNA");
-				ps.setString(4, "RAJAMOULI");
-				ps.setString(4, "2017");
-	
+				PreparedStatement ps = con.prepareStatement("insert into movies(moviesname,hero,heroine,Director,Year) values(?,?,?,?,?);");
+				ps.setString(1, "KGF2);
+				ps.setString(2, "YASH");
+				ps.setString(3, "SRINIDHI");
+				ps.setString(4, "NEIL");
+				ps.setString(4, "2022");	
 				ps.executeUpdate();
 				Statement query = con.createStatement();
 				ResultSet rs = query.executeQuery("select * from movie_s;");
